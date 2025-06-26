@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Conway - Sales Resume</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfc;
+            color: #374151;
+        }
+
+        /* --- Keyframe Animations --- */
+        
+        /* This keyframe creates a smooth scrolling effect for gradients */
+        @keyframes animate-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* This keyframe creates a subtle glowing effect for text */
+        @keyframes subtle-glow {
+            0%, 100% { text-shadow: 0 0 4px rgba(139, 92, 246, 0.3); }
+            50% { text-shadow: 0 0 12px rgba(139, 92, 246, 0.6); }
+        }
+
+        /* --- General Styling --- */
+
+        .section-title {
+            color: #1f2937;
+            border-bottom: 2px solid #8B5CF6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 8px; /* Added for better hover effect */
+        }
+        
+        .experience-item:hover {
+            transform: scale(1.02); /* Makes the section slightly larger on hover */
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.07); /* Adds a subtle shadow on hover */
+        }
+
+        /* The animated vertical timeline bar */
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 3px;
+            border-radius: 1.5px;
+            background: linear-gradient(to bottom, #EF4444, #F97316, #EAB308, #22C55E, #3B82F6, #8B5CF6);
+            background-size: 100% 600%; /* Increased size for a smoother vertical animation */
+            animation: animate-gradient 10s ease infinite; /* Applies the gradient animation */
+        }
+
+        .bullet-point::before {
+            content: '•';
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            color: #8B5CF6;
+        }
+        
+        /* Applies the glowing animation to subheaders and icons */
+        .subheader-animated-color, .icon-animated-color {
+            color: #8B5CF6;
+            animation: subtle-glow 5s ease-in-out infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+        
+        /* The animated horizontal line under the contact info */
+        .animated-gradient-line {
+            height: 8px;
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 380px;
+            margin-left: auto;
+            margin-right: auto;
+            background: linear-gradient(to right, #EF4444, #F97316, #EAB308, #22C55E, #3B82F6, #8B5CF6);
+            background-size: 400% 100%; /* Increased size for a smoother horizontal animation */
+            animation: animate-gradient 8s ease infinite; /* Applies the gradient animation */
+        }
+
+        .nested-experience-item {
+            margin-top: 1rem;
+            margin-left: 1rem;
+            padding-left: 0.5rem;
+        }
+
+        .condensed-header h1 {
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item ul.list-none li {
+            font-size: 0.98rem;
+        }
+
+        .company-location-main {
+            font-size: 0.9rem;
+            color: #8B5CF6;
+            font-weight: 500;
+            display: block;
+            margin-top: 0.1rem;
+            margin-bottom: 0.1rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-white p-6 md:p-10">
+
+        <!-- Header Section -->
+        <header class="text-center mb-2 pt-2">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-1">Cash Conway</h1>
+            <p class="text-xl md:text-2xl subheader-animated-color font-semibold">Sales Development Representative | Account Executive</p>
+        </header>
+
+        <!-- Contact Information -->
+        <section class="mb-8">
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-4 text-gray-700 items-center">
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 icon-animated-color" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                    <span>512-656-9229</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 icon-animated-color" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                    <span>cashcon57@gmail.com</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 icon-animated-color" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"></path>
+                    </svg>
+                    <a href="https://www.linkedin.com/in/cash-conway-91b50477" target="_blank" class="icon-animated-color hover:underline">LinkedIn Profile</a>
+                </div>
+            </div>
+            <div class="animated-gradient-line"></div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold section-title">Summary</h2>
+            <p id="resume-summary-text" class="text-gray-700 leading-relaxed">
+                Accomplished sales and account management professional with 8 years of experience driving revenue growth and optimizing sales processes across the tech, business compliance, finance, marketing, and mortgage industries. Proven track record of exceeding sales quotas and fostering client relationships. Seeking to leverage strong sales acumen to contribute to a growth-oriented company.
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold section-title">Experience</h2>
+
+            <div class="experience-item p-4">
+                <h3 class="text-xl font-semibold text-gray-800">ZenBusiness</h3>
+                <p class="company-location-main">Austin, TX</p>
+                <div class="nested-experience-item">
+                    <h4 class="text-lg font-semibold text-gray-800">Business Growth Specialist</h4>
+                    <p class="text-gray-600 text-sm mb-2">August 2023 – Present</p>
+                    <ul class="list-none pl-0 text-gray-700 space-y-2">
+                        <li class="bullet-point">Achieved top 3 sales ranking within the first quarter by successfully onboarding an average of 200 new businesses monthly.</li>
+                        <li class="bullet-point">Expertly articulated the value of a versatile portfolio of tax and compliance products to drive consistent upsell revenue.</li>
+                        <li class="bullet-point">Selected by leadership to co-lead team meetings and took on 1:1 development of 12 junior sales representatives.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item p-4">
+                <h3 class="text-xl font-semibold text-gray-800">Homeward</h3>
+                <p class="company-location-main">Austin, TX</p>
+                <div class="nested-experience-item">
+                    <h4 class="text-lg font-semibold text-gray-800">SDR/Approval Specialist</h4>
+                    <p class="text-gray-600 text-sm mb-2">October 2021 – November 2022</p>
+                    <ul class="list-none pl-0 text-gray-700 space-y-2">
+                        <li class="bullet-point">Pioneered a new sales-focused operational model, resulting in a 50% increase in team-wide lead conversion versus the previous customer service focused operational model.</li>
+                        <li class="bullet-point">Managed the customer qualification pipeline, collaborating with underwriting to secure approvals for applications previously slated for denial, leading to a 30% higher approval rate vs. company baseline.</li>
+                        <li class="bullet-point">Consistently exceeded sales quotas by an average of 100% quarterly, serving as the blueprint for new sales process design.</li>
+                    </ul>
+                </div>
+                <div class="nested-experience-item">
+                    <h4 class="text-lg font-semibold text-gray-800">Sales Development Representative</h4>
+                    <p class="text-gray-600 text-sm mb-2">March 2021 – October 2021</p>
+                    <ul class="list-none pl-0 text-gray-700 space-y-2">
+                        <li class="bullet-point">Exceeded inbound sales quotas by over 50% through expert product knowledge and solution-selling.</li>
+                        <li class="bullet-point">Developed key competitor analysis matrices that were adopted company-wide to enhance the sales team's ability to handle objections.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item p-4">
+                <h3 class="text-xl font-semibold text-gray-800">Keycafe</h3>
+                <p class="company-location-main">Austin, TX</p>
+                <div class="nested-experience-item">
+                    <h4 class="text-lg font-semibold text-gray-800">Enterprise Account Executive</h4>
+                    <p class="text-gray-600 text-sm mb-2">September 2019 – March 2020</p>
+                    <ul class="list-none pl-0 text-gray-700 space-y-2">
+                        <li class="bullet-point">Managed the full North American enterprise sales cycle, exceeding targets by 60% in the first two quarters.</li>
+                        <li class="bullet-point">Expanded Keycafe's New York City footprint by acquiring 50 new strategic partners, including multi-location supermarkets and convenience stores, increasing market penetration by 30%.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item p-4">
+                <h3 class="text-xl font-semibold text-gray-800">GoDaddy</h3>
+                <p class="company-location-main">Austin, TX</p>
+                <div class="nested-experience-item">
+                    <h4 class="text-lg font-semibold text-gray-800">Sales Development Representative</h4>
+                    <p class="text-gray-600 text-sm mb-2">January 2018 – August 2019</p>
+                    <ul class="list-none pl-0 text-gray-700 space-y-2">
+                        <li class="bullet-point">Secured over 300 new SMB accounts through strategic cold outreach and product demonstrations.</li>
+                        <li class="bullet-point">Selected as one of the first representatives for the new service-area businesses department based on high performance.</li>
+                        <li class="bullet-point">Consistently exceeded monthly sales quotas by an average of 100-300%.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section>
+            <h2 class="text-2xl font-bold section-title">Education</h2>
+            <div>
+                <h3 class="text-xl font-semibold text-gray-800">Austin Community College</h3>
+                <p class="text-lg text-gray-700 font-medium">Studied Business Administration & Biochemistry</p>
+                <p class="text-gray-600 text-sm">2013 – 2016</p>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
+
