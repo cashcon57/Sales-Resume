@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cash Conway - Sales Resume</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -127,21 +126,19 @@
 <body class="antialiased">
     <div class="bg-white p-6 md:p-10">
 
-        <!-- Header Section -->
         <header class="text-center mb-2 pt-2">
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-1">Cash Conway</h1>
             <p class="text-xl md:text-2xl subheader-animated-color font-semibold">Sales Development Representative | Account Executive</p>
         </header>
 
-        <!-- Contact Information -->
         <section class="mb-8">
             <div class="flex flex-wrap justify-center gap-x-6 gap-y-4 text-gray-700 items-center">
                 <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 icon-animated-color" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 icon-animated-color" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
                     <span>512-656-9229</span>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 icon-animated-color" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 icon-animated-color" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                     <span>cashcon57@gmail.com</span>
                 </div>
                 <div class="flex items-center space-x-2">
@@ -154,24 +151,41 @@
             <div class="animated-gradient-line"></div>
         </section>
 
-        <!-- Summary Section -->
         <section class="mb-8">
             <h2 class="text-2xl font-bold section-title">Summary</h2>
             <p id="resume-summary-text" class="text-gray-700 leading-relaxed">
-                Accomplished sales and account management professional with 8 years of experience driving revenue growth and optimizing sales processes across the tech, business compliance, finance, marketing, and mortgage industries. Proven track record of exceeding sales quotas and fostering client relationships. Seeking to leverage strong sales acumen to contribute to a growth-oriented company.
+                Accomplished sales and account management professional 
+with 8 years of experience driving revenue growth and optimizing sales 
+processes across the tech, business compliance, finance, marketing, and 
+mortgage industries. Proven track record of exceeding sales quotas and 
+fostering client relationships. Seeking to leverage strong sales acumen 
+to contribute to a growth-oriented company.
             </p>
         </section>
 
-        <!-- Experience Section -->
         <section class="mb-8">
             <h2 class="text-2xl font-bold section-title">Experience</h2>
+
+            <div class="experience-item p-4">
+                <h3 class="text-xl font-semibold text-gray-800">Cogent Communications</h3>
+                <p class="company-location-main">Austin, TX</p>
+                <div class="nested-experience-item">
+                    <h4 class="text-lg font-semibold text-gray-800">Regional Account Manager</h4>
+                    <p class="text-gray-600 text-sm mb-2">September 2025 – Present</p>
+                    <ul class="list-none pl-0 text-gray-700 space-y-2">
+                        <li class="bullet-point">Spearheading regional sales and account management for Cogent Communications, focusing on business development and fostering long-term client relationships.</li>
+                        <li class="bullet-point">Managing a portfolio of key accounts to drive recurring revenue and ensure high client retention within the region.</li>
+                        <li class="bullet-point">Developing and executing strategic sales plans to expand market share in the telecommunications and data services sector.</li>
+                    </ul>
+                </div>
+            </div>
 
             <div class="experience-item p-4">
                 <h3 class="text-xl font-semibold text-gray-800">ZenBusiness</h3>
                 <p class="company-location-main">Austin, TX</p>
                 <div class="nested-experience-item">
                     <h4 class="text-lg font-semibold text-gray-800">Business Growth Specialist</h4>
-                    <p class="text-gray-600 text-sm mb-2">August 2023 – Present</p>
+                    <p class="text-gray-600 text-sm mb-2">August 2023 – August 2025</p>
                     <ul class="list-none pl-0 text-gray-700 space-y-2">
                         <li class="bullet-point">Achieved top 3 sales ranking within the first quarter by successfully onboarding an average of 200 new businesses monthly.</li>
                         <li class="bullet-point">Expertly articulated the value of a versatile portfolio of tax and compliance products to drive consistent upsell revenue.</li>
@@ -187,8 +201,14 @@
                     <h4 class="text-lg font-semibold text-gray-800">SDR/Approval Specialist</h4>
                     <p class="text-gray-600 text-sm mb-2">October 2021 – November 2022</p>
                     <ul class="list-none pl-0 text-gray-700 space-y-2">
-                        <li class="bullet-point">Pioneered a new sales-focused operational model, resulting in a 50% increase in team-wide lead conversion versus the previous customer service focused operational model.</li>
-                        <li class="bullet-point">Managed the customer qualification pipeline, collaborating with underwriting to secure approvals for applications previously slated for denial, leading to a 30% higher approval rate vs. company baseline.</li>
+                        <li class="bullet-point">Pioneered a new 
+sales-focused operational model, resulting in a 50% increase in 
+team-wide lead conversion versus the previous customer service focused 
+operational model.</li>
+                        <li class="bullet-point">Managed the customer 
+qualification pipeline, collaborating with underwriting to secure 
+approvals for applications previously slated for denial, leading to a 
+30% higher approval rate vs. company baseline.</li>
                         <li class="bullet-point">Consistently exceeded sales quotas by an average of 100% quarterly, serving as the blueprint for new sales process design.</li>
                     </ul>
                 </div>
@@ -197,7 +217,9 @@
                     <p class="text-gray-600 text-sm mb-2">March 2021 – October 2021</p>
                     <ul class="list-none pl-0 text-gray-700 space-y-2">
                         <li class="bullet-point">Exceeded inbound sales quotas by over 50% through expert product knowledge and solution-selling.</li>
-                        <li class="bullet-point">Developed key competitor analysis matrices that were adopted company-wide to enhance the sales team's ability to handle objections.</li>
+                        <li class="bullet-point">Developed key 
+competitor analysis matrices that were adopted company-wide to enhance 
+the sales team's ability to handle objections.</li>
                     </ul>
                 </div>
             </div>
@@ -210,7 +232,10 @@
                     <p class="text-gray-600 text-sm mb-2">September 2019 – March 2020</p>
                     <ul class="list-none pl-0 text-gray-700 space-y-2">
                         <li class="bullet-point">Managed the full North American enterprise sales cycle, exceeding targets by 60% in the first two quarters.</li>
-                        <li class="bullet-point">Expanded Keycafe's New York City footprint by acquiring 50 new strategic partners, including multi-location supermarkets and convenience stores, increasing market penetration by 30%.</li>
+                        <li class="bullet-point">Expanded Keycafe's New 
+York City footprint by acquiring 50 new strategic partners, including 
+multi-location supermarkets and convenience stores, increasing market 
+penetration by 30%.</li>
                     </ul>
                 </div>
             </div>
@@ -230,12 +255,11 @@
             </div>
         </section>
 
-        <!-- Education Section -->
         <section>
             <h2 class="text-2xl font-bold section-title">Education</h2>
             <div>
                 <h3 class="text-xl font-semibold text-gray-800">Austin Community College</h3>
-                <p class="text-lg text-gray-700 font-medium">Studied Business Administration & Biochemistry</p>
+                <p class="text-lg text-gray-700 font-medium">Studied Business Administration &amp; Biochemistry</p>
                 <p class="text-gray-600 text-sm">2013 – 2016</p>
             </div>
         </section>
@@ -243,4 +267,3 @@
     </div>
 </body>
 </html>
-
