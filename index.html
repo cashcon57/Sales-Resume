@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cash Conway - Sales Resume</title>
-    <!-- Removed line-clamp to resolve the console warning -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <!-- Simplified Tailwind CDN to prevent 503 timeouts and console warnings -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -460,8 +460,9 @@
     </div>
 
     <script>
-        // Wrapped in DOMContentLoaded to prevent 'null' errors during page load
-        document.addEventListener('DOMContentLoaded', () => {
+        // Use an IIFE (Immediately Invoked Function Expression) combined with DOMContentLoaded 
+        // to ensure variables are fully enclosed and the HTML has completely parsed before running.
+        document.addEventListener('DOMContentLoaded', function() {
             const themeToggle = document.getElementById('theme-toggle');
             const downloadBtn = document.getElementById('download-btn');
             const sunIcon = document.getElementById('sun-icon');
@@ -470,39 +471,43 @@
 
             const toggleBtn = document.getElementById('resume-toggle-btn');
             const toggleText = document.getElementById('toggle-text');
-            const salesResume = document.getElementById('sales-resume');
-            const devResume = document.getElementById('dev-resume');
-
+            
             let isDevMode = false;
 
             if (toggleBtn) {
-                toggleBtn.addEventListener('click', () => {
-                    isDevMode = !isDevMode;
-                    if (isDevMode) {
-                        // Use optional chaining (?.) just in case the element didn't load
-                        salesResume?.classList.add('hidden');
-                        devResume?.classList.remove('hidden');
-                        if (toggleText) toggleText.textContent = '📈 Sales Resume';
-                        document.title = 'Cash Conway - AI Developer Resume';
-                    } else {
-                        devResume?.classList.add('hidden');
-                        salesResume?.classList.remove('hidden');
-                        if (toggleText) toggleText.textContent = '💻 Dev Resume';
-                        document.title = 'Cash Conway - Sales Resume';
+                toggleBtn.addEventListener('click', function() {
+                    // Re-query the elements inside the click event to guarantee they exist
+                    // and aren't returning 'null' from an early page load
+                    const salesResume = document.getElementById('sales-resume');
+                    const devResume = document.getElementById('dev-resume');
+
+                    if (salesResume && devResume) {
+                        isDevMode = !isDevMode;
+                        if (isDevMode) {
+                            salesResume.classList.add('hidden');
+                            devResume.classList.remove('hidden');
+                            if (toggleText) toggleText.textContent = '📈 Sales Resume';
+                            document.title = 'Cash Conway - AI Developer Resume';
+                        } else {
+                            devResume.classList.add('hidden');
+                            salesResume.classList.remove('hidden');
+                            if (toggleText) toggleText.textContent = '💻 Dev Resume';
+                            document.title = 'Cash Conway - Sales Resume';
+                        }
                     }
                 });
             }
 
             if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    body.classList.toggle('dark');
-                    sunIcon?.classList.toggle('hidden');
-                    moonIcon?.classList.toggle('hidden');
+                themeToggle.addEventListener('click', function() {
+                    if (body) body.classList.toggle('dark');
+                    if (sunIcon) sunIcon.classList.toggle('hidden');
+                    if (moonIcon) moonIcon.classList.toggle('hidden');
                 });
             }
 
             if (downloadBtn) {
-                downloadBtn.addEventListener('click', () => {
+                downloadBtn.addEventListener('click', function() {
                     window.print();
                 });
             }
