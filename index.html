@@ -86,12 +86,17 @@
             animation: rainbow-vertical 4s linear infinite;
         }
 
+        .bullet-point {
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
         .bullet-point::before {
             content: '•';
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+            position: absolute;
+            left: 0;
             color: #8B5CF6;
+            font-weight: bold;
         }
         
         .subheader-animated-color, .icon-animated-color {
@@ -156,12 +161,17 @@
             body { background-color: white !important; color: black !important; }
             .resume-card { box-shadow: none !important; margin: 0 !important; width: 100% !important; max-width: none !important; }
             .experience-item::before, .animated-gradient-line { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            /* Ensure the hidden resume doesn't print */
+            #sales-resume.hidden, #dev-resume.hidden { display: none !important; }
         }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="controls">
+        <button id="resume-toggle-btn" class="control-btn font-bold text-sm text-purple-600 dark:text-purple-400" title="Switch Resume Version">
+            <span id="toggle-text">💻 Dev Resume</span>
+        </button>
         <button id="download-btn" class="control-btn" title="Download PDF">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -178,112 +188,119 @@
     </div>
 
     <div class="resume-card p-6 md:p-10 max-w-4xl mx-auto my-8 shadow-2xl rounded-xl">
-        <header class="text-center mb-2 pt-2">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-1" style="color: var(--text-bold)">Cash Conway</h1>
-            <p class="text-xl md:text-2xl subheader-animated-color font-semibold">Sales Development Representative | Account Executive</p>
-        </header>
+        
+        <!-- Sales Resume View -->
+        <div id="sales-resume">
+            <header class="text-center mb-2 pt-2">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-1" style="color: var(--text-bold)">Cash Conway</h1>
+                <p class="text-xl md:text-2xl subheader-animated-color font-semibold">Sales Development Representative | Account Executive</p>
+            </header>
 
-        <section class="mb-8 text-center">
-            <div class="flex flex-wrap justify-center gap-x-6 gap-y-4 items-center">
-                <span>512-656-9229</span>
-                <span>cashcon57@gmail.com</span>
-                <a href="https://www.linkedin.com/in/cash-conway-91b50477" target="_blank" class="hover:underline">LinkedIn Profile</a>
-            </div>
-            <div class="animated-gradient-line"></div>
-        </section>
+            <section class="mb-8 text-center">
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-4 items-center">
+                    <span>512-656-9229</span>
+                    <span>cashcon57@gmail.com</span>
+                    <a href="https://www.linkedin.com/in/cash-conway-91b50477" target="_blank" class="hover:underline">LinkedIn Profile</a>
+                </div>
+                <div class="animated-gradient-line"></div>
+            </section>
 
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold section-title">Summary</h2>
-            <p class="leading-relaxed">
-                Accomplished sales and account management professional with 8 years of experience driving revenue growth across tech, finance, and marketing industries. <strong>Specialized in the implementation of agentic AI workflows to automate outreach and scale productivity by over 300%.</strong> Proven track record of exceeding sales quotas and fostering long-term client relationships.
-            </p>
-        </section>
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold section-title">Summary</h2>
+                <p class="leading-relaxed">
+                    Emerging AI Application Architect and workflow specialist with an extensive 8-year background in B2B sales and account management. Highly skilled in <strong>AI-Assisted Engineering and Prompt Architecture</strong>, leveraging tools like Claude Code to independently architect, generate, and ship complex, full-stack software. Seeking a role to apply deep AI literacy, system design, and workflow automation to drive technical innovation and bridge the gap between business needs and rapid technical implementation.
+                </p>
+            </section>
 
-        <section class="mb-8">
-            <h2 class="text-2xl font-bold section-title">Experience</h2>
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold section-title">Technical & AI Skills</h2>
+                <ul class="list-none pl-0 space-y-2">
+                    <li class="bullet-point"><strong>Core Competencies:</strong> Advanced Prompt Engineering, AI Workflow Automation, System Architecture, Python, HTML/CSS.</li>
+                    <li class="bullet-point"><strong>AI-Orchestrated Stack:</strong> Successfully shipped production applications utilizing Rust, TypeScript, JavaScript, React, Svelte, and Tailwind CSS via AI-assisted engineering.</li>
+                    <li class="bullet-point"><strong>AI Infrastructure:</strong> MCP (Model Context Protocol), Vector Databases (Qdrant, PGVector), Claude Code, Agentic Workflows.</li>
+                    <li class="bullet-point"><strong>Backend & Cloud Architected:</strong> Node.js, Tauri, Electron, Cloudflare Workers/R2, Fly.io, PostgreSQL, Supabase, Neon, Redis, WebSockets.</li>
+                    <li class="bullet-point"><strong>Methodology:</strong> Iterative AI Prototyping, Technical Communication, Cross-functional Collaboration, Git/GitHub.</li>
+                </ul>
+            </section>
 
-            <div class="experience-item p-4">
-                <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Cogent Communications</h3>
-                <p class="company-location-main">Austin, TX</p>
-                <div class="nested-experience-item">
-                    <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Regional Account Manager</h4>
-                    <p class="text-sm mb-2" style="color: var(--text-muted)">September 2025 – Present</p>
-                    <ul class="list-none pl-0 space-y-2">
-                        <li class="bullet-point">Develop and maintain multiple AI agents as part of the cold outreach process, increasing cold outreach output by over 300%.</li>
-                        <li class="bullet-point">Hold AI implementation meetings with the sales team to further AI literacy and increase productivity.</li>
-                        <li class="bullet-point">Spearheading regional sales and account management, focusing on business development and fostering long-term client relationships.</li>
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold section-title">Development Projects</h2>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Corkscrew: Cross-Platform Desktop App <span class="text-sm font-normal text-gray-500">(Open Source)</span></h3>
+                    <p class="company-location-main">Rust, Tauri, Svelte, TypeScript</p>
+                    <ul class="list-none pl-0 mt-2 space-y-2">
+                        <li class="bullet-point">Directed the architectural design and AI-generation of a complex desktop mod manager using Tauri, successfully bridging a high-performance Rust backend with a reactive Svelte frontend.</li>
+                        <li class="bullet-point">Prompt-engineered deep system-level integrations including OAuth authentication, concurrent file management, third-party tool orchestration (Wine, Steam), and game mod installation logic.</li>
+                        <li class="bullet-point">Leveraged advanced prompt architecture with Claude Code to rapidly build, refine, and debug multi-language features.</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="experience-item p-4">
-                <h3 class="text-xl font-semibold" style="color: var(--text-bold)">ZenBusiness</h3>
-                <p class="company-location-main">Austin, TX</p>
-                <div class="nested-experience-item">
-                    <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Business Growth Specialist</h4>
-                    <p class="text-sm mb-2" style="color: var(--text-muted)">August 2023 – August 2025</p>
-                    <ul class="list-none pl-0 space-y-2">
-                        <li class="bullet-point">Achieved top 3 sales ranking within the first quarter by successfully onboarding an average of 200 new businesses monthly.</li>
-                        <li class="bullet-point">Selected by leadership to co-lead team meetings and took on 1:1 development of 12 junior sales representatives.</li>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">CTO & Lead Architect — Full-Stack Dating App <span class="text-sm font-normal text-gray-500">(Private)</span></h3>
+                    <p class="company-location-main">React Native (Expo), Cloudflare Workers (Hono), Fly.io, Neon Postgres, Upstash</p>
+                    <ul class="list-none pl-0 mt-2 space-y-2">
+                        <li class="bullet-point">Leading technical strategy and AI-augmented development as CTO, architecting a multi-client ecosystem with a React Native mobile app and React/Vite web platform.</li>
+                        <li class="bullet-point">Utilized Claude Code to generate a highly performant Edge REST API utilizing Cloudflare Workers, Hono, and Neon Postgres to process Firebase Auth, complex discovery matching, and R2 photo storage.</li>
+                        <li class="bullet-point">Designed and deployed a scalable real-time microservice on Fly.io using WebSockets and Upstash Redis to power live messaging, typing indicators, and instant match notifications.</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="experience-item p-4">
-                <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Homeward</h3>
-                <p class="company-location-main">Austin, TX</p>
-                <div class="nested-experience-item">
-                    <h4 class="text-lg font-semibold" style="color: var(--text-bold)">SDR/Approval Specialist</h4>
-                    <p class="text-sm mb-2" style="color: var(--text-muted)">October 2021 – November 2022</p>
-                    <ul class="list-none pl-0 space-y-2">
-                        <li class="bullet-point">Pioneered a new sales-focused operational model, resulting in a 50% increase in lead conversion.</li>
-                        <li class="bullet-point">Managed qualification pipeline, collaborating with underwriting to secure approvals previously slated for denial.</li>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Engram: AI Memory & Context Manager <span class="text-sm font-normal text-gray-500">(Open Source)</span></h3>
+                    <p class="company-location-main">TypeScript, React, Node.js, Electron, PostgreSQL (PGVector), Qdrant, MCP</p>
+                    <ul class="list-none pl-0 mt-2 space-y-2">
+                        <li class="bullet-point">Architected an advanced memory infrastructure for LLMs, utilizing AI tools to implement Vector Databases (Qdrant, PGVector) for semantic search and context retrieval.</li>
+                        <li class="bullet-point">Integrated MCP (Model Context Protocol) to seamlessly connect AI agents to internal databases and external tools, massively enhancing agentic autonomy.</li>
                     </ul>
                 </div>
-                <div class="nested-experience-item">
-                    <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Sales Development Representative</h4>
-                    <p class="text-sm mb-2" style="color: var(--text-muted)">March 2021 – October 2021</p>
-                    <ul class="list-none pl-0 space-y-2">
-                        <li class="bullet-point">Exceeded inbound sales quotas by over 50% through expert product knowledge.</li>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">AgentBoard: AI Orchestration Dashboard <span class="text-sm font-normal text-gray-500">(Open Source)</span></h3>
+                    <p class="company-location-main">JavaScript, React, Node.js, Electron, WebSockets</p>
+                    <ul class="list-none pl-0 mt-2 space-y-2">
+                        <li class="bullet-point">Built a comprehensive command center for AI agents, leveraging LLMs to write real-time terminal outputs via WebSockets and visual agent task management.</li>
+                        <li class="bullet-point">Guided AI generation of deep GitHub API and local Git worktree integrations, enabling agents to manage branches, resolve conflicts, and commit code autonomously.</li>
                     </ul>
                 </div>
-            </div>
+            </section>
 
-            <div class="experience-item p-4">
-                <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Keycafe</h3>
-                <p class="company-location-main">Austin, TX</p>
-                <div class="nested-experience-item">
-                    <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Enterprise Account Executive</h4>
-                    <p class="text-sm mb-2" style="color: var(--text-muted)">September 2019 – March 2020</p>
-                    <ul class="list-none pl-0 space-y-2">
-                        <li class="bullet-point">Managed full North American enterprise sales cycle, exceeding targets by 60%.</li>
-                        <li class="bullet-point">Expanded NYC footprint by acquiring 50 new strategic partners.</li>
-                    </ul>
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold section-title">Experience</h2>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Cogent Communications</h3>
+                    <p class="company-location-main">Austin, TX</p>
+                    <div class="nested-experience-item">
+                        <h4 class="text-lg font-semibold" style="color: var(--text-bold)">AI Integrator & Regional Account Manager</h4>
+                        <p class="text-sm mb-2" style="color: var(--text-muted)">September 2025 – Present</p>
+                        <ul class="list-none pl-0 space-y-2">
+                            <li class="bullet-point">Architected and integrated multiple AI agents into the business development lifecycle, automating processes and increasing cold outreach output by over 300%.</li>
+                            <li class="bullet-point">Led AI implementation and literacy workshops for the sales team, demonstrating how to effectively leverage LLMs to increase daily productivity.</li>
+                            <li class="bullet-point">Bridged the gap between technical AI tools and non-technical staff to modernize regional sales strategies.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-
-            <div class="experience-item p-4">
-                <h3 class="text-xl font-semibold" style="color: var(--text-bold)">GoDaddy</h3>
-                <p class="company-location-main">Austin, TX</p>
-                <div class="nested-experience-item">
-                    <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Sales Development Representative</h4>
-                    <p class="text-sm mb-2" style="color: var(--text-muted)">January 2018 – August 2019</p>
-                    <ul class="list-none pl-0 space-y-2">
-                        <li class="bullet-point">Secured over 300 new SMB accounts through strategic cold outreach.</li>
-                        <li class="bullet-point">Consistently exceeded monthly sales quotas by an average of 100-300%.</li>
-                    </ul>
+                
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">ZenBusiness, Homeward, Keycafe, GoDaddy</h3>
+                    <p class="company-location-main">Austin, TX</p>
+                    <div class="nested-experience-item">
+                        <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Sales Leadership & Account Management</h4>
+                        <p class="text-sm mb-2" style="color: var(--text-muted)">January 2018 – August 2025</p>
+                        <ul class="list-none pl-0 space-y-2">
+                            <li class="bullet-point">8 years of progressive experience in scaling operations, leading teams, and exceeding revenue targets across tech, finance, and marketing sectors.</li>
+                            <li class="bullet-point">Developed deep business acumen and client communication skills, translating complex value propositions to diverse stakeholders.</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold section-title">Education</h2>
+                <div>
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Austin Community College</h3>
+                    <p class="text-lg font-medium">Studied Business Administration & Biochemistry</p>
+                    <p class="text-sm" style="color: var(--text-muted)">2013 – 2016</p>
+                </div>
+            </section>
+        </div>
 
-        <section>
-            <h2 class="text-2xl font-bold section-title">Education</h2>
-            <div>
-                <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Austin Community College</h3>
-                <p class="text-lg font-medium">Studied Business Administration & Biochemistry</p>
-                <p class="text-sm" style="color: var(--text-muted)">2013 – 2016</p>
-            </div>
-        </section>
     </div>
 
     <script>
@@ -292,6 +309,28 @@
         const sunIcon = document.getElementById('sun-icon');
         const moonIcon = document.getElementById('moon-icon');
         const body = document.body;
+
+        const toggleBtn = document.getElementById('resume-toggle-btn');
+        const toggleText = document.getElementById('toggle-text');
+        const salesResume = document.getElementById('sales-resume');
+        const devResume = document.getElementById('dev-resume');
+
+        let isDevMode = false;
+
+        toggleBtn.addEventListener('click', () => {
+            isDevMode = !isDevMode;
+            if (isDevMode) {
+                salesResume.classList.add('hidden');
+                devResume.classList.remove('hidden');
+                toggleText.textContent = '📈 Sales Resume';
+                document.title = 'Cash Conway - AI Developer Resume';
+            } else {
+                devResume.classList.add('hidden');
+                salesResume.classList.remove('hidden');
+                toggleText.textContent = '💻 Dev Resume';
+                document.title = 'Cash Conway - Sales Resume';
+            }
+        });
 
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark');
