@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cash Conway - Sales Resume</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <!-- Removed line-clamp to resolve the console warning -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -33,6 +34,11 @@
         .resume-card {
             background-color: var(--card-bg);
             transition: background-color 0.3s ease;
+        }
+
+        /* Fallback CSS: Ensures toggling works even if Tailwind CDN has a 503 timeout */
+        .hidden {
+            display: none !important;
         }
 
         /* --- Unified Rainbow Keyframes --- */
@@ -301,45 +307,205 @@
             </section>
         </div>
 
+        <!-- Developer Resume View (Hidden by Default) -->
+        <div id="dev-resume" class="hidden">
+            <header class="text-center mb-2 pt-2">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-1" style="color: var(--text-bold)">Cash Conway</h1>
+                <p class="text-xl md:text-2xl subheader-animated-color font-semibold">AI Workflow Integration Specialist | AI-Assisted Developer</p>
+            </header>
+
+            <section class="mb-8 text-center">
+                <div class="flex flex-wrap justify-center gap-x-6 gap-y-4 items-center">
+                    <span>512-656-9229</span>
+                    <span>cashcon57@gmail.com</span>
+                    <a href="https://github.com/cashcon57" target="_blank" class="hover:underline">GitHub: cashcon57</a>
+                    <a href="https://www.linkedin.com/in/cash-conway-91b50477" target="_blank" class="hover:underline">LinkedIn</a>
+                </div>
+                <div class="animated-gradient-line"></div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold section-title">Summary</h2>
+                <p class="leading-relaxed">
+                    Emerging full-stack developer and AI workflow specialist with an extensive 8-year background in B2B sales and account management. Highly skilled in <strong>AI-Assisted Engineering and Prompt Architecture</strong>, leveraging tools like Claude Code for rapid, iterative software development. Seeking a role to apply deep AI literacy, modern serverless architecture, and frontend engineering skills to drive technical innovation and bridge the gap between business needs and complex technical implementation.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold section-title">Technical & AI Skills</h2>
+                <ul class="list-none pl-0 space-y-2">
+                    <li class="bullet-point"><strong>AI & Workflows:</strong> Advanced Prompt Engineering, Claude Code, Agentic Workflows, AI Workflow Automation, AI Literacy Training & Implementation.</li>
+                    <li class="bullet-point"><strong>Languages & Frontend:</strong> Python, Rust, JavaScript, HTML5, CSS3, Tailwind CSS.</li>
+                    <li class="bullet-point"><strong>Backend & Databases:</strong> PostgreSQL, Supabase, Neon, Upstash, Firebase.</li>
+                    <li class="bullet-point"><strong>Cloud & Serverless:</strong> Cloudflare Workers, Cloudflare R2, Amazon S3, Edge Computing.</li>
+                    <li class="bullet-point"><strong>Methodology:</strong> Iterative AI-Assisted Prototyping, Technical Communication, Cross-functional Collaboration, Git/GitHub.</li>
+                </ul>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold section-title">Development Projects</h2>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Full-Stack Dating Application <span class="text-sm font-normal text-gray-500">(Private Repository)</span></h3>
+                    <p class="company-location-main">PostgreSQL, Supabase, JavaScript, Tailwind CSS</p>
+                    <ul class="list-none pl-0 mt-2 space-y-2">
+                        <li class="bullet-point">Architected and developed a complex dating application over several weeks utilizing advanced, iterative prompt engineering with Claude Code.</li>
+                        <li class="bullet-point">Designed comprehensive UI/UX flows, integrated real-time backend logic using Supabase, and engineered robust relational database schemas in Postgres.</li>
+                        <li class="bullet-point">Refined system prompts and contextual boundaries to debug and scale the application beyond one-shot generated scripts, successfully implementing complex user matching logic.</li>
+                    </ul>
+                </div>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Serverless Web Applications & Edge APIs</h3>
+                    <p class="company-location-main">Cloudflare Workers, R2, Neon, Upstash, Amazon S3</p>
+                    <ul class="list-none pl-0 mt-2 space-y-2">
+                        <li class="bullet-point">Developed multiple responsive, high-performance web applications leveraging edge computing via Cloudflare Workers and R2 blob storage.</li>
+                        <li class="bullet-point">Implemented serverless database architectures using Neon and Upstash for rapid, low-latency data retrieval, alongside Firebase for real-time state management.</li>
+                        <li class="bullet-point">Managed cloud infrastructure and large-scale media asset storage utilizing Amazon S3.</li>
+                    </ul>
+                </div>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">AI Data Processing & Automation Scripts</h3>
+                    <p class="company-location-main">Python, Rust, AI APIs</p>
+                    <ul class="list-none pl-0 mt-2 space-y-2">
+                        <li class="bullet-point">Engineered robust backend scripts and high-performance CLI tools in Python and Rust for continuous data processing and workflow automation.</li>
+                        <li class="bullet-point">Leveraged agentic AI models to automatically parse, clean, and organize large datasets, drastically reducing manual data entry overhead.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold section-title">Experience</h2>
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Cogent Communications</h3>
+                    <p class="company-location-main">Austin, TX</p>
+                    <div class="nested-experience-item">
+                        <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Regional Account Manager</h4>
+                        <p class="text-sm mb-2" style="color: var(--text-muted)">September 2025 – Present</p>
+                        <ul class="list-none pl-0 space-y-2">
+                            <li class="bullet-point">Develop and maintain multiple AI agents as part of the cold outreach process, increasing cold outreach output by over 300%.</li>
+                            <li class="bullet-point">Hold AI implementation meetings with the sales team to further AI literacy and increase productivity.</li>
+                            <li class="bullet-point">Spearheading regional sales and account management, focusing on business development and fostering long-term client relationships.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">ZenBusiness</h3>
+                    <p class="company-location-main">Austin, TX</p>
+                    <div class="nested-experience-item">
+                        <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Business Growth Specialist</h4>
+                        <p class="text-sm mb-2" style="color: var(--text-muted)">August 2023 – August 2025</p>
+                        <ul class="list-none pl-0 space-y-2">
+                            <li class="bullet-point">Achieved top 3 sales ranking within the first quarter by successfully onboarding an average of 200 new businesses monthly.</li>
+                            <li class="bullet-point">Selected by leadership to co-lead team meetings and took on 1:1 development of 12 junior sales representatives.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Homeward</h3>
+                    <p class="company-location-main">Austin, TX</p>
+                    <div class="nested-experience-item">
+                        <h4 class="text-lg font-semibold" style="color: var(--text-bold)">SDR/Approval Specialist</h4>
+                        <p class="text-sm mb-2" style="color: var(--text-muted)">October 2021 – November 2022</p>
+                        <ul class="list-none pl-0 space-y-2">
+                            <li class="bullet-point">Pioneered a new sales-focused operational model, resulting in a 50% increase in lead conversion.</li>
+                            <li class="bullet-point">Managed qualification pipeline, collaborating with underwriting to secure approvals previously slated for denial.</li>
+                        </ul>
+                    </div>
+                    <div class="nested-experience-item">
+                        <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Sales Development Representative</h4>
+                        <p class="text-sm mb-2" style="color: var(--text-muted)">March 2021 – October 2021</p>
+                        <ul class="list-none pl-0 space-y-2">
+                            <li class="bullet-point">Exceeded inbound sales quotas by over 50% through expert product knowledge.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Keycafe</h3>
+                    <p class="company-location-main">Austin, TX</p>
+                    <div class="nested-experience-item">
+                        <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Enterprise Account Executive</h4>
+                        <p class="text-sm mb-2" style="color: var(--text-muted)">September 2019 – March 2020</p>
+                        <ul class="list-none pl-0 space-y-2">
+                            <li class="bullet-point">Managed full North American enterprise sales cycle, exceeding targets by 60%.</li>
+                            <li class="bullet-point">Expanded NYC footprint by acquiring 50 new strategic partners.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item p-4">
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">GoDaddy</h3>
+                    <p class="company-location-main">Austin, TX</p>
+                    <div class="nested-experience-item">
+                        <h4 class="text-lg font-semibold" style="color: var(--text-bold)">Sales Development Representative</h4>
+                        <p class="text-sm mb-2" style="color: var(--text-muted)">January 2018 – August 2019</p>
+                        <ul class="list-none pl-0 space-y-2">
+                            <li class="bullet-point">Secured over 300 new SMB accounts through strategic cold outreach.</li>
+                            <li class="bullet-point">Consistently exceeded monthly sales quotas by an average of 100-300%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold section-title">Education</h2>
+                <div>
+                    <h3 class="text-xl font-semibold" style="color: var(--text-bold)">Austin Community College</h3>
+                    <p class="text-lg font-medium">Studied Business Administration & Biochemistry</p>
+                    <p class="text-sm" style="color: var(--text-muted)">2013 – 2016</p>
+                </div>
+            </section>
+        </div>
     </div>
 
     <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const downloadBtn = document.getElementById('download-btn');
-        const sunIcon = document.getElementById('sun-icon');
-        const moonIcon = document.getElementById('moon-icon');
-        const body = document.body;
+        // Wrapped in DOMContentLoaded to prevent 'null' errors during page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const downloadBtn = document.getElementById('download-btn');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            const body = document.body;
 
-        const toggleBtn = document.getElementById('resume-toggle-btn');
-        const toggleText = document.getElementById('toggle-text');
-        const salesResume = document.getElementById('sales-resume');
-        const devResume = document.getElementById('dev-resume');
+            const toggleBtn = document.getElementById('resume-toggle-btn');
+            const toggleText = document.getElementById('toggle-text');
+            const salesResume = document.getElementById('sales-resume');
+            const devResume = document.getElementById('dev-resume');
 
-        let isDevMode = false;
+            let isDevMode = false;
 
-        toggleBtn.addEventListener('click', () => {
-            isDevMode = !isDevMode;
-            if (isDevMode) {
-                salesResume.classList.add('hidden');
-                devResume.classList.remove('hidden');
-                toggleText.textContent = '📈 Sales Resume';
-                document.title = 'Cash Conway - AI Developer Resume';
-            } else {
-                devResume.classList.add('hidden');
-                salesResume.classList.remove('hidden');
-                toggleText.textContent = '💻 Dev Resume';
-                document.title = 'Cash Conway - Sales Resume';
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    isDevMode = !isDevMode;
+                    if (isDevMode) {
+                        // Use optional chaining (?.) just in case the element didn't load
+                        salesResume?.classList.add('hidden');
+                        devResume?.classList.remove('hidden');
+                        if (toggleText) toggleText.textContent = '📈 Sales Resume';
+                        document.title = 'Cash Conway - AI Developer Resume';
+                    } else {
+                        devResume?.classList.add('hidden');
+                        salesResume?.classList.remove('hidden');
+                        if (toggleText) toggleText.textContent = '💻 Dev Resume';
+                        document.title = 'Cash Conway - Sales Resume';
+                    }
+                });
             }
-        });
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark');
-            sunIcon.classList.toggle('hidden');
-            moonIcon.classList.toggle('hidden');
-        });
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    body.classList.toggle('dark');
+                    sunIcon?.classList.toggle('hidden');
+                    moonIcon?.classList.toggle('hidden');
+                });
+            }
 
-        downloadBtn.addEventListener('click', () => {
-            window.print();
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    window.print();
+                });
+            }
         });
     </script>
 </body>
